@@ -29,21 +29,25 @@
 		var searchListCtrl = this;
 		
 		searchListCtrl.getMatchedMenuItems = function(searchTerm) {	
+			
+			if (searchTerm.length > 0) {
+				var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+				promise.then(function (response) {
+					searchListCtrl.found = response;
+				})
+				.catch(function (error) {
+					console.log("Something went terribly wrong.");
+				});				
+			}
+			else {
+				searchListCtrl.found = [];
+			}
 
-			var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-			promise.then(function (response) {
-				searchListCtrl.found = response;
-			})
-			.catch(function (error) {
-				console.log("Something went terribly wrong.");
-			});
+			
 		};
 
 		searchListCtrl.removeItem = function (itemIndex) {
-			console.log("index", itemIndex);
 			searchListCtrl.found.splice(itemIndex, 1);
-			console.log("size", searchListCtrl.found.length);
-			console.log("found", searchListCtrl.found);
 		};		
 	}
 
