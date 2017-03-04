@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+<head>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+	<ui-view></ui-view>
+	<!-- 	test -->
+	My angular test (delete before push)
+	<input ng-model="test" />
+	<p>user enter the text:{{test}}</p>
+
+	<!-- Libraries -->
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+
+	<!-- Modules -->
+	<script src="src/menuapp/menuapp.module.js"></script>
+	<script src="src/data/data.module.js"></script>
+
+	<script src="src/routes.js"></script>
+
+	<script src="src/data/menudata.service.js"></script>
+	<script src="src/menuapp/categories.component.js"></script>
+	<script src="src/menuapp/items.component.js"></script>
+	<script src="src/menuapp/items.controller.js"></script>
+	<script src="src/menuapp/menuapp.controller.js"></script>
+</body>
+</html>
