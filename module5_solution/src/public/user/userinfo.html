@@ -1,0 +1,9 @@
+<a ui-sref="public.home">back</a>
+<br>
+<span ng-if="userInfoController.getUser()===undefined"> Not
+	Signed Up Yet. <a ui-sref="signup">Sign up Now!</a>
+</span>
+<span ng-if="userInfoController.getUser()!==undefined"> <user-info
+		user="userInfoController.getUser()"
+		item="userInfoController.getItem()"></user-info>
+</span>

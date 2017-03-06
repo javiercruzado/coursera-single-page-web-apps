@@ -1,0 +1,46 @@
+<a ui-sref="public.home">back</a>
+<fieldset>
+	<legend>Sign Up</legend>
+	<form name='signUpForm' novalidate>
+
+		<!-- 		first name -->
+		<input type="text" name="firstName" placeholder="First Name"
+			ng-model="signUp.user.firstName" required minlength="4"
+			ng-maxlength="30"> <span
+			ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched">
+			First Name must be at least 4 characters long </span> <span
+			ng-if="signUpForm.firstName.$error.maxlength && signUpForm.firstName.$touched">
+			First Name must not be longer than 30 characters </span> <br>
+		<!-- 			 last name -->
+		<input type="text" name="lastName" placeholder="Last Name"
+			ng-model="signUp.user.lastName" required minlength="4"
+			ng-maxlength="30"> <span
+			ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched">
+			Last Name must be at least 4 characters long </span> <span
+			ng-if="signUpForm.lastName.$error.maxlength && signUpForm.lastName.$touched">
+			Last Name must not be longer than 30 characters </span> <br>
+
+		<!-- 		email address -->
+		<input type="email" name="email" placeholder="Email"
+			ng-model="signUp.user.email" required> <span
+			ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+			Must be a valid email address: handle@domain format </span> <br>
+
+		<!-- phone number -->
+		<input type="text" name="phone" placeholder="Phone ###-###-####"
+			ng-model="signUp.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+		<span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+			Phone must be in the format ###-###-####. </span> <br>
+
+		<!-- category short name -->
+		<input type="text" name="shortName" placeholder="Menu number"
+			ng-model="signUp.user.shortName"><span
+			ng-if="signUp.serverError"> No such menu number exists. </span><br>
+
+		<button ng-disabled="signUpForm.$invalid" ng-click="signUp.submit()">Submit</button>
+
+		<!-- 		<div style="margin-top: 10px;">Form valid? {{ regForm.$valid }} -->
+		<!-- 		</div> -->
+	</form>
+</fieldset>
+<div ng-if="signUp.saved">Your information has been saved!</div>

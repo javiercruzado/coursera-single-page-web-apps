@@ -1,0 +1,22 @@
+<p>User Info:</p>
+{{$ctrl.user.firstName}}
+<br>
+{{$ctrl.user.lastName}}
+<br>
+{{$ctrl.user.email}}
+<br>
+{{$ctrl.user.phone}}
+<br>
+<br>
+<p>Preferences:</p>
+{{$ctrl.item.name}}
+<br>
+{{$ctrl.item.description}}
+<br>
+<!-- {{$ctrl.basePath}} -->
+<div class="menu-item-photo">
+	<img class="img-responsive" width="250" height="150"
+		ng-src="{{$ctrl.basePath}}/images/menu/{{$ctrl.item.category_short_name}}/{{$ctrl.item.category_short_name}}.jpg"
+		alt="{{$ctrl.item.name}}">
+</div>
+
